@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
-export const Body = styled.div `
+export const BodyComp = styled.div `
   width: 100vw;
-  height: 100vh;
-  background-color: #DAE0E6;
+  height: 100px;
+  background-color:  #00E2BA;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding-top: 100px;
+  padding-left: 30vw;
 `
 export const ContainerLogin = styled.div `
   display: flex;
@@ -29,9 +28,4 @@ export const Form = styled.form `
   justify-content: center;
   align-items: center;
 
-`
-export const ImgLogo = styled.img `
-  width: 400px;
-  border-radius: 5px;
-  margin-bottom: 50px;
 `

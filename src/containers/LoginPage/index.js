@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import Imagem from '../../imgs/logospotenu.png'
-import {Body, ContainerLogin, Form, ImgLogo} from './styled'
-import {Header} from '../../components/Header/index'
+import {BodyComp, ContainerLogin, Form} from './styled';
+import {Header} from '../../components/Header/index';
+
 
 class LoginPage extends Component {
   constructor(props) {
@@ -17,9 +17,9 @@ class LoginPage extends Component {
     const { email, password } = this.state
     const { goToFormRegister } = this.props
     return (
-      <Body>
-        <Header/>
-        <ImgLogo src={Imagem}/>
+      <div>
+        <Header showTitle/>
+
 
         <ContainerLogin>
         <Form onSubmit={this.handleLogin}>
@@ -59,7 +59,7 @@ class LoginPage extends Component {
        
 
         </ContainerLogin>
-      </Body>
+      </div>
     );
   }
 }

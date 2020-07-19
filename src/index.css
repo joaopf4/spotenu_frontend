@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-h1 {
+h1, p {
   font-family: 'proxima_nova_rgbold', Helvetica, Arial, sans-serif;
 }  
 
