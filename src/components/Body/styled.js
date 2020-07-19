@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
-export const BodyComp = styled.div `
-  width: 100vw;
-  height: 100px;
-  background-color:  #00E2BA;
-  display: flex;
-  align-items: center;
-  padding-left: 30vw;
-`
+// export const BodyComp = styled.div `
+//   width: 100vw;
+//   height: 100px;
+//   background-color:  #00E2BA;
+//   display: flex;
+//   align-items: center;
+//   padding-left: 30vw;
+// `
