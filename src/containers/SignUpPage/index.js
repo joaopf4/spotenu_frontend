@@ -1,71 +1,51 @@
 import React, { Component } from "react";
-import {ContainerLogin, Form, SignUpText} from './styled';
+import {ContainerLogin, Form, SignUpText, SingupInput} from './styled';
 import {Header} from '../../components/Header/index';
 import {BodyComp} from '../../components/Body/styled';
-import {InputsComp, ButtonsComp, Links} from '../../components/Smallers/styled';
+import {ButtonsComp, Select} from '../../components/Smallers/styled';
 
-
-
-class LoginPage extends Component {
+class SignUpPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      email: '',
-      password: ''
+      form: {}
     }
   }
   render() {
-    const { email, password } = this.state
-    const { goToFormRegister } = this.props
+    const {username, email, password} = this.state;
     return (
       <BodyComp>
         <Header showTitle/>
-
-
         <ContainerLogin>
         <Form onSubmit={this.handleLogin}>
          
-          <InputsComp 
-            //  name="email"
-            //  required
-            //  type="email"
-            //  label="Email"
-            //  onChange={this.handleFieldChange}
-            //  value={email} 
-             placeholder="email ou username"
+          <Select>
+          <option value="" disabled selected>Escolha o seu tipo de cadastro</option>
+            <option value="Banda|Cantor(a)">Banda|Cantor(a)</option>
+            <option value="Ouvinte 0800">Ouvinte 0800</option>
+            <option value="Ouvinte Premium">Ouvinte Premium</option>
+          </Select>
+          <SingupInput 
+             placeholder="Nome e Sobrenome"
           />
-          <InputsComp
-            name="password"
-            required
-            type="password"
-            label="Senha"            
-            onChange={this.handleFieldChange}
-            value={password} 
-            placeholder="senha"
+          <SingupInput
+            placeholder="email@email.com"
           />
-          <br/>
-        
-          <br/>
+          <SingupInput
+            placeholder="username"
+            title="Apenas caracteres minúsculos, sem espaços ou caracteres especiais =)"
+          />
+          <SingupInput
+            placeholder="Senha"
+          />
+          <SingupInput
+            placeholder="Confirme a senha anterior"
+          />
+
           <ButtonsComp type="submit"> 
-            Entrar
+            Enviar!
           </ButtonsComp>
-          <SignUpText>
-            Ainda não tem seu cadastro?  
-            <Links
-              variant="contained"
-              color="primary"
-              onClick={goToFormRegister}
-            >  Clique aqui!
-               
-            </Links>
-          </SignUpText>
-
-     
-
         </Form>
-          
-       
-
         </ContainerLogin>
       </BodyComp>
     );
@@ -73,5 +53,5 @@ class LoginPage extends Component {
 }
 
 
-export default LoginPage;
+export default SignUpPage;
 
