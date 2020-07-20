@@ -26,12 +26,12 @@ class LoginPage extends Component {
         <Form onSubmit={this.handleLogin}>
          
           <InputsComp 
-            name="email"
-            required
-            type="email"
-            label="Email"
-            onChange={this.handleFieldChange}
-            value={email} 
+            //  name="email"
+            //  required
+            //  type="email"
+            //  label="Email"
+            //  onChange={this.handleFieldChange}
+            //  value={email} 
              placeholder="email ou username"
           />
           <InputsComp
