@@ -11,18 +11,16 @@ export const InputsComp = styled.input `
   padding: 0 20px;
   border-radius: 8px;
   margin: 18px 0px;
-  
   font-size: 1.3rem;
   ::placeholder,
   ::-webkit-input-placeholder {
-    
+
     font-size: 1.3rem;
   }
 `
 export const ButtonsComp = styled.button `
   width: 300px;
   height: 60px;
-  min-width: fit-content;
   background-color: #00E2BA;
   outline: none;
   border: 2px solid black;
@@ -30,7 +28,6 @@ export const ButtonsComp = styled.button `
   box-sizing: border-box;
   border-radius: 8px;
   margin: 18px 0px;
-  
   font-size: 1.3rem;
   :hover {
     background-color: #fff;
@@ -46,9 +43,7 @@ export const ButtonsComp = styled.button `
   }
 `
 export const Links = styled.a `
-  
   font-size: inherit;
-  
   :hover {
     cursor: pointer;
     color: #00E2BA;
@@ -59,5 +54,17 @@ export const Links = styled.a `
     text-shadow: 1.5px 1.5px #00E2BA;
   }
 `
-
+export const Select = styled.select `
+  min-width: 320px;
+  width: 50vw;
+  height: 60px;
+  outline: none;
+  border: 2px solid black;
+  box-shadow: rgba(1, 1, 1, 1) 20px 20px;
+  box-sizing: border-box;
+  padding: 0 20px;
+  border-radius: 8px;
+  margin: 18px 0px;
+  font-size: 1.3rem;
+`
 

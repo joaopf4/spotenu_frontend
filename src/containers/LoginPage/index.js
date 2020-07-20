@@ -20,52 +20,40 @@ class LoginPage extends Component {
     return (
       <BodyComp>
         <Header showTitle/>
-
-
         <ContainerLogin>
-        <Form onSubmit={this.handleLogin}>
-         
-          <InputsComp 
-            name="email"
-            required
-            type="email"
-            label="Email"
-            onChange={this.handleFieldChange}
-            value={email} 
-             placeholder="email ou username"
-          />
-          <InputsComp
-            name="password"
-            required
-            type="password"
-            label="Senha"            
-            onChange={this.handleFieldChange}
-            value={password} 
-            placeholder="senha"
-          />
-          <br/>
-        
-          <br/>
-          <ButtonsComp type="submit"> 
-            Entrar
-          </ButtonsComp>
-          <SignUpText>
-            Ainda não tem seu cadastro?  
-            <Links
-              variant="contained"
-              color="primary"
-              onClick={goToFormRegister}
-            >  Clique aqui!
-               
-            </Links>
-          </SignUpText>
-
-     
-
-        </Form>
-          
-       
-
+          <Form onSubmit={this.handleLogin}>
+            <InputsComp 
+              name="email"
+              required
+              type="email"
+              label="Email"
+              onChange={this.handleFieldChange}
+              value={email} 
+               placeholder="email ou username"
+            />
+            <InputsComp
+              name="password"
+              required
+              type="password"
+              label="Senha"            
+              onChange={this.handleFieldChange}
+              value={password} 
+              placeholder="senha"
+            />
+            <br/>
+            <ButtonsComp type="submit"> 
+              Entrar
+            </ButtonsComp>
+            <SignUpText>
+              Ainda não tem seu cadastro?  
+              <Links
+                variant="contained"
+                color="primary"
+                onClick={goToFormRegister}
+              >  Clique aqui! 
+              </Links>
+            </SignUpText>
+          </Form>
         </ContainerLogin>
       </BodyComp>
     );

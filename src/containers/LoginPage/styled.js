@@ -21,5 +21,6 @@ export const Form = styled.form `
 export const SignUpText = styled.p `
   font-family: 'proxima_nova_rgbold', Helvetica, Arial, sans-serif;
   font-size: 0.9rem;
+  margin-top: 8px;
   
 `
