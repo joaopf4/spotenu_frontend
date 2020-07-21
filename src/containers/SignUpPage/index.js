@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import {ContainerLogin, Form, SignUpText, SingupInput} from './styled';
 import {Header} from '../../components/Header/index';
 import {BodyComp} from '../../components/Body/styled';

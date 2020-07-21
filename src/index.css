@@ -4,11 +4,12 @@
   outline: 0;
   box-sizing: border-box;
   font-family: 'proxima_nova_rgbold', Helvetica, Arial, sans-serif;
-
 }
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-left: 0px !important;
+  overflow-y: overlay;
 }
 body html #root {
   height: 100%;
