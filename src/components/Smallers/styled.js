@@ -54,6 +54,12 @@ export const Links = styled.a `
     text-shadow: 1.5px 1.5px #00E2BA;
   }
 `
+export const Link = styled.a `
+  :hover {
+    cursor: pointer;
+  }
+
+`
 export const Select = styled.select `
   min-width: 320px;
   width: 50vw;

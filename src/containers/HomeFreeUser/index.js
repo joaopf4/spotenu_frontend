@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import {ContainerLogin, Form, SignUpText} from './styled';
-import {Header} from '../../components/Header/index';
+import Header from '../../components/Header/index';
 import {BodyComp, BodyPage} from '../../components/Body/styled';
 import {InputsComp, ButtonsComp, Links} from '../../components/Smallers/styled';
 import { push } from "connected-react-router";

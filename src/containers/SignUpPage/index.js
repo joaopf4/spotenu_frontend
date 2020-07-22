@@ -1,8 +1,12 @@
 import React, { Component, } from "react";
 import {ContainerLogin, Form, SingupInput} from './styled';
-import {Header} from '../../components/Header/index';
+import Header from '../../components/Header/index';
 import {BodyComp} from '../../components/Body/styled';
 import {ButtonsComp, Select, Label, EyeIcon} from '../../components/Smallers/styled';
+import { push, replace } from "connected-react-router";
+import { routes } from "../Router";
+import { signUp } from '../../actions/user';
+import { connect } from "react-redux"
 
 class SignUpPage extends Component {
   constructor(props) {
@@ -18,8 +22,7 @@ class SignUpPage extends Component {
   };
 
   togglePasswordVisibility = () => {
-    const {isPasswordShown} = this.state;
-    this.setState({ isPasswordShown: !isPasswordShown });
+    this.setState({ isPasswordShown: !this.state.isPasswordShown });
   }
 
   handleInputChange = (event) => {
@@ -34,7 +37,7 @@ class SignUpPage extends Component {
     if (password !== confirmPassword) {
     } else {
       this.props.signUp(name, email, username, password);
-      this.props.goToHome();
+      //this.props.goToHome();
     }
   }
 
@@ -42,15 +45,15 @@ class SignUpPage extends Component {
     const { name, email, username, password, confirmPassword, isPasswordShown } = this.state;
     return (
       <BodyComp>
-        <Header showTitle/>
+        <Header showTitleLink/>
         <ContainerLogin>
-          <Form onSubmit={this.handleLogin}>
             <Select>
               <option value="" disabled selected>Escolha o seu tipo de cadastro</option>
               <option value="Banda|Cantor(a)">Banda|Cantor(a)</option>
               <option value="Ouvinte 0800">Ouvinte 0800</option> //ao selecionar o role, enviar o role pro estado da aplicação
               <option value="Ouvinte Premium">Ouvinte Premium</option>
             </Select>
+          <Form onSubmit={this.handleSubmmit}>
             <Label>Nome e sobrenome</Label>
             <SingupInput 
               onChange={this.handleInputChange}
@@ -92,20 +95,23 @@ class SignUpPage extends Component {
               title="Mínimo de 6 caracteres"
               placeholder="Mínimo 6 caracteres"
               pattern="[A-Za-z 123456789!@#$%¨&*]{6,}"
-            /><EyeIcon><i onClick={this.togglePasswordVisibility} 
+            />
+            <EyeIcon><i onClick={this.togglePasswordVisibility} 
             className={`fa ${isPasswordShown ? "fa-eye-slash" : "fa-eye"} password-icon`}></i></EyeIcon>
+
             <Label>Confirmação da senha</Label>
             <SingupInput
               onChange={this.handleInputChange}
-              name="password"
+              name="confirmPassword"
               required
               type={(isPasswordShown)?"text" : "password" }         
               value={confirmPassword}
               title="Mínimo de 6 caracteres"
               placeholder="Confirme a senha anterior"
               pattern="[A-Za-z 123456789!@#$%¨&*]{6,}"
-            /><EyeIcon><i onClick={this.togglePasswordVisibility} 
-            className={`fa ${isPasswordShown ? "fa-eye-slash" : "fa-eye"} password-icon`}></i></EyeIcon>
+            />
+            <EyeIcon><i onClick={this.togglePasswordVisibility} 
+            className={`fa ${isPasswordShown ? "fa-eye-slash" : "fa-eye"} password-icon`}></i></EyeIcon> 
 
             <ButtonsComp type="submit"> 
               Enviar!
@@ -117,6 +123,9 @@ class SignUpPage extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  signUp: (name, email, username, password) => dispatch(signUp(name, email, username, password))
+})
 
-export default SignUpPage;
+export default connect(null, mapDispatchToProps)(SignUpPage);
 
