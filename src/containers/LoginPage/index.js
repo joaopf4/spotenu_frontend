@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from "react";
-import {ContainerLogin, Form, SignUpText, Label} from './styled';
+import React, { Component } from "react";
+import {ContainerLogin, Form, SignUpText} from './styled';
 import {Header} from '../../components/Header/index';
 import {BodyComp, BodyPage} from '../../components/Body/styled';
-import {InputsComp, ButtonsComp, Links} from '../../components/Smallers/styled';
+import {InputsComp, ButtonsComp, Links, Label, EyeIcon} from '../../components/Smallers/styled';
 import { push } from "connected-react-router";
 import { routes } from '../Router';
 import { loginUser } from '../../actions/user';
@@ -12,10 +12,16 @@ class LoginPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      isPasswordShown: false,
       email: '',
       password: ''
     };
   };
+
+  togglePasswordVisibility = () => {
+    const {isPasswordShown} = this.state;
+    this.setState({ isPasswordShown: !isPasswordShown });
+  }
 
   handleLogin = (event) => {
     event.preventDefault()
@@ -36,7 +42,7 @@ class LoginPage extends Component {
   }
 
   render() {
-    const { email, password } = this.state
+    const { email, password, isPasswordShown } = this.state
     const { goToFormRegister } = this.props
     return (
       <BodyComp>
@@ -47,22 +53,25 @@ class LoginPage extends Component {
               <InputsComp 
                 name="email"
                 required
-                type="email"
+                type="text"
                 id="email"
                 onChange={this.handleFieldChange}
                 value={email} 
                 placeholder="email ou username"
               />
               <Label for="senha">Senha</Label>
+              
               <InputsComp
                 name="password"
                 required
-                type="password"
+                type={(isPasswordShown)?"text" : "password" }
                 id="senha"           
                 onChange={this.handleFieldChange}
                 value={password} 
                 placeholder="senha"
-              />
+              /> <EyeIcon><i onClick={this.togglePasswordVisibility} 
+              className={`fa ${isPasswordShown ? "fa-eye-slash" : "fa-eye"} password-icon`}>
+                </i></EyeIcon>
               <br/>
               <ButtonsComp type="submit"> 
                 Entrar

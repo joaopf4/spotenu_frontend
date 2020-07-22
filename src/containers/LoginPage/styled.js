@@ -25,8 +25,3 @@ export const SignUpText = styled.p `
   font-size: 0.9rem;
   margin-top: 5px;
 `
-export const Label = styled.label `
-  font-size: 1.0rem;
-  margin: 6px 0px -10px;
-  align-self: flex-start;
-`

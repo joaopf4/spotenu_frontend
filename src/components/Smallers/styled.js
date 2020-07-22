@@ -67,4 +67,12 @@ export const Select = styled.select `
   margin: 18px 0px;
   font-size: 1.3rem;
 `
-
+export const Label = styled.label `
+  font-size: 1.0rem;
+  margin: 6px 0px -10px;
+  align-self: flex-start;
+`
+export const EyeIcon = styled.p `
+  font-size:1.2rem;
+  cursor: pointer;
+`

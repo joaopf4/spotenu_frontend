@@ -2,13 +2,16 @@ import axios from 'axios';
 import { routes } from '../containers/Router'
 import { push } from 'connected-react-router'
 
+const baseUrl = "http://localhost:3001"
+
 
 ////////////assíncronas
 ////////////action de cadastro de usuário
-export const createUser = (body) => async (dispatch) => {
+export const signUp = (name, email, username, password) => async (dispatch) => {
+    const body = (name, email, username, password)
     try {
         const response = await axios.post(
-            'https://us-central1-future-apis.cloudfunctions.net/fourEddit/signup',
+            `${baseUrl}/user/signup`,
             body 
             );
         localStorage.setItem("token", response.data.token)
@@ -20,17 +23,16 @@ export const createUser = (body) => async (dispatch) => {
 }
 
 ////////////action de login
-export const loginUser = (email, password) => async (dispatch) => {
+export const loginUser = (emailOrUsername, password) => async (dispatch) => {
     const body = { 
-        email,
+        emailOrUsername,
         password
     }
     try { const response = await axios.post (
-        'https://us-central1-future-apis.cloudfunctions.net/fourEddit/login', 
-        body
+        `${baseUrl}/user/login`, body
     ); 
     localStorage.setItem("token", response.data.token)
-    dispatch(push(routes.listPosts))
+    dispatch(push(routes.homefree))
     } catch (error) {
         alert("Usuário ou senha inválidos. Tente novamente");
         console.error(error)

@@ -6,7 +6,7 @@ export class Header extends Component {
     render() {
       return (
         <HeaderComp>
-    
+            
              <ImgLogo src={Imagem}/>
             {this.props.showTitle && <Title>Spotenu</Title>}
       
