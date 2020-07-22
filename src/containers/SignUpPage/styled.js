@@ -27,7 +27,7 @@ export const ContainerLogin = styled.div `
   flex-direction: column;
   width: fit-content;
   height: fit-content;
-  padding: 100px 0px 100px 0px;
+  margin: 5vh 0vh;
   box-sizing: border-box;
   background-color: white;
   border-radius: 8px;

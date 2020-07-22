@@ -54,6 +54,12 @@ export const Links = styled.a `
     text-shadow: 1.5px 1.5px #00E2BA;
   }
 `
+export const Link = styled.a `
+  :hover {
+    cursor: pointer;
+  }
+
+`
 export const Select = styled.select `
   min-width: 320px;
   width: 50vw;
@@ -67,4 +73,12 @@ export const Select = styled.select `
   margin: 18px 0px;
   font-size: 1.3rem;
 `
-
+export const Label = styled.label `
+  font-size: 1.0rem;
+  margin: 6px 0px -10px;
+  align-self: flex-start;
+`
+export const EyeIcon = styled.p `
+  font-size:1.2rem;
+  cursor: pointer;
+`

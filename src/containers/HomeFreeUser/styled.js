@@ -11,8 +11,7 @@ export const ContainerLogin = styled.div `
   box-sizing: border-box;
   background-color: white;
   border-radius: 8px;
-  margin-top: 18vh;
-  margin-bottom: 40px;
+  margin-top: 10%;
 `
 export const Form = styled.form `
   display: flex;
@@ -22,6 +21,8 @@ export const Form = styled.form `
 
 `
 export const SignUpText = styled.p `
+  font-family: 'proxima_nova_rgbold', Helvetica, Arial, sans-serif;
   font-size: 0.9rem;
-  margin-top: 5px;
+  margin-top: 8px;
+  
 `
