@@ -8,6 +8,7 @@ import { routes } from "../Router";
 import { signUp } from '../../actions/user';
 import { connect } from "react-redux"
 
+
 class SignUpPage extends Component {
   constructor(props) {
     super(props)
@@ -49,10 +50,11 @@ class SignUpPage extends Component {
         <ContainerLogin>
             <Select>
               <option value="" disabled selected>Escolha o seu tipo de cadastro</option>
-              <option value="Banda|Cantor(a)">Banda|Cantor(a)</option>
-              <option value="Ouvinte 0800">Ouvinte 0800</option> //ao selecionar o role, enviar o role pro estado da aplicação
-              <option value="Ouvinte Premium">Ouvinte Premium</option>
+              <option value="BANDA">Banda|Cantor(a)</option>
+              <option value="OUVINTE_NAO_PAGANTE">Ouvinte 0800</option> //ao selecionar o role, enviar o role pro estado da aplicação
+              <option value="OUVINTE_PAGANTE">Ouvinte Premium</option>
             </Select>
+            
           <Form onSubmit={this.handleSubmmit}>
             <Label>Nome e sobrenome</Label>
             <SingupInput 
