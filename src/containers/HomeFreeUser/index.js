@@ -21,7 +21,7 @@ class HomeFreeUser extends Component {
 
     return (
       <BodyComp>
-        <Header showTitle/>
+        <Header showTitle showSearch/>
 
       </BodyComp>
     );
