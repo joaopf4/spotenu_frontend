@@ -1,4 +1,4 @@
-import React, { Component, } from "react";
+import React, { Component, Fragment, } from "react";
 import {ContainerLogin, Form, SingupInput} from './styled';
 import Header from '../../components/Header/index';
 import {BodyComp} from '../../components/Body/styled';
@@ -8,6 +8,7 @@ import { routes } from "../Router";
 import { signUp } from '../../actions/user';
 import { connect } from "react-redux"
 
+
 class SignUpPage extends Component {
   constructor(props) {
     super(props)
@@ -16,11 +17,22 @@ class SignUpPage extends Component {
       name: '',
       email: '',
       username: '',
+      description_band: '',
       password: '',
-      confirmPassword: ''
-    };
+      confirmPassword: '',  
+      selectedSignup: ""
   };
+};
 
+  renderDescriptionField = (newSignUp) => {
+    this.setState({ selectedSignup: newSignUp})
+    console.log("new signup", newSignUp)
+  }
+
+  onChangeSelect = (event) => {
+    this.renderDescriptionField(event.target.value)
+  }
+  
   togglePasswordVisibility = () => {
     this.setState({ isPasswordShown: !this.state.isPasswordShown });
   }
@@ -32,27 +44,51 @@ class SignUpPage extends Component {
 
   handleSubmmit = (event) => {
     event.preventDefault();
-    const { name, email, username, password, confirmPassword } = this.state
+    const { name, email, username, password, confirmPassword, description_band, selectedSignup } = this.state
 
     if (password !== confirmPassword) {
     } else {
-      this.props.signUp(name, email, username, password);
-      //this.props.goToHome();
+      console.log(this.state)
+      console.log(selectedSignup)
+      this.props.signUp(name, email, username, password, selectedSignup, description_band);
     }
   }
 
-  render() {
-    const { name, email, username, password, confirmPassword, isPasswordShown } = this.state;
+  render() { 
+    
+    const { name, email, username, password, confirmPassword, isPasswordShown, description_band } = this.state;
+
+     const renderDescriptionBand = this.state.selectedSignup === "BANDA" ? (
+      <Fragment>
+      <Label>Descreva aqui a sua banda!</Label>
+     <SingupInput
+      onChange={this.handleInputChange}
+      name="description_band"
+      required
+      type="text" 
+      value={description_band}
+      placeholder="Descreva aqui a sua banda!"
+      title="Essa descrição vai aparecer para quem acessar o seu perfil no app"
+     />
+    </Fragment>
+     ) : (<></>)
+  
+
     return (
       <BodyComp>
         <Header showTitleLink/>
         <ContainerLogin>
-            <Select>
+            <Select value={this.state.selectedSignup}
+              onChange={this.onChangeSelect}
+              selectedSignup={this.state.selectedSignup}
+              renderDescriptionField={this.alter}
+            >
               <option value="" disabled selected>Escolha o seu tipo de cadastro</option>
-              <option value="Banda|Cantor(a)">Banda|Cantor(a)</option>
-              <option value="Ouvinte 0800">Ouvinte 0800</option> //ao selecionar o role, enviar o role pro estado da aplicação
-              <option value="Ouvinte Premium">Ouvinte Premium</option>
+              <option value="BANDA">Banda|Cantor(a)</option>
+              <option value="OUVINTE_NAO_PAGANTE">Ouvinte 0800</option> //ao selecionar o role, enviar o role pro estado da aplicação
+              <option value="OUVINTE_PAGANTE">Ouvinte Premium</option>
             </Select>
+            
           <Form onSubmit={this.handleSubmmit}>
             <Label>Nome e sobrenome</Label>
             <SingupInput 
@@ -60,7 +96,7 @@ class SignUpPage extends Component {
               name="name"
               required
               type="text"
-              pattern = "[A-Za-z ãéÁáêõÕÊíÍçÇÚúüÜ]{5,}"
+              pattern = "[A-Za-z ãéÁáêõÕÓÊíÍçÇÚúüÜ]{5,}"
               value={name}
               placeholder="Nome e Sobrenome"
               title="O nome/sobrenome deve conter no mínimo 5 letras."
@@ -80,11 +116,12 @@ class SignUpPage extends Component {
               name="username"
               required
               type="text"
-              pattern="[A-Za-z-_]{3,}"   
+              pattern="[a-z-_]{3,}"   
               value={username}
               placeholder="username"
               title="Mínimo de 3 caracteres minúsculos, sem espaços ou caracteres especiais =)"
             />
+            {renderDescriptionBand}
             <Label>Senha</Label>
             <SingupInput
               onChange={this.handleInputChange}
@@ -124,7 +161,7 @@ class SignUpPage extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  signUp: (name, email, username, password) => dispatch(signUp(name, email, username, password))
+  signUp: (name, email, nickname, password, role, description_band) => dispatch(signUp(name, email, nickname, password, role, description_band))
 })
 
 export default connect(null, mapDispatchToProps)(SignUpPage);

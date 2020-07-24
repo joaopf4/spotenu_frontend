@@ -2,20 +2,21 @@ import axios from 'axios';
 import { routes } from '../containers/Router'
 import { push } from 'connected-react-router'
 
-const baseUrl = "http://localhost:3000"
+const baseUrl = "https://u8c0wfyum6.execute-api.us-east-1.amazonaws.com/dev"
 
 
 ////////////assíncronas
 ////////////action de cadastro de usuário
-export const signUp = (name, email, username, password) => async (dispatch) => {
-    const body = (name, email, username, password)
+export const signUp = (name, email, nickname, password, role, description_band) => async (dispatch) => {
+    const body = {name, email, nickname, password, role, description_band}
     try {
+        console.log(body)
         const response = await axios.post(
             `${baseUrl}/user/signup`,
             body 
             );
-        const token = response.data.result.Access_token
-        const userRole = response.data.result.role
+        const token = response.data.Access_token
+        const userRole = response.data.role
         localStorage.setItem("token", token)
         localStorage.setItem("userRole", userRole)
         dispatch(push(routes.homefree))
