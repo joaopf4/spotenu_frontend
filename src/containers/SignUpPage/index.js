@@ -1,4 +1,4 @@
-import React, { Component, } from "react";
+import React, { Component, Fragment, } from "react";
 import {ContainerLogin, Form, SingupInput} from './styled';
 import Header from '../../components/Header/index';
 import {BodyComp} from '../../components/Body/styled';
@@ -13,14 +13,37 @@ class SignUpPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      tipoDeCadastro: [ 
+      {
       isPasswordShown: false,
       name: '',
       email: '',
       username: '',
       password: '',
       confirmPassword: ''
-    };
+    },
+      {
+      isPasswordShown: false,
+      name: '',
+      email: '',
+      username: '',
+      description_band: '',
+      password: '',
+      confirmPassword: ''
+    },
+  ],
+  selectedSignup: ""
+}
+
   };
+
+  renderDescriptionField = (newSignUp) => {
+    this.setState({ selectedSignup: newSignUp})
+  }
+
+  onChangeSelect = (event) => {
+    this.renderDescriptionField(event.target.value)
+  }
 
   togglePasswordVisibility = () => {
     this.setState({ isPasswordShown: !this.state.isPasswordShown });
@@ -38,17 +61,42 @@ class SignUpPage extends Component {
     if (password !== confirmPassword) {
     } else {
       this.props.signUp(name, email, username, password);
-      //this.props.goToHome();
     }
   }
 
   render() {
-    const { name, email, username, password, confirmPassword, isPasswordShown } = this.state;
+    // const conditionalInput = this.inputsSignup.filter(eachInput => {
+    //   if (this.selectedSignup === "BANDA") {
+    //    return (
+    //    <Fragment>
+    //      <Label>Descreva aqui a sua banda!</Label>
+    //     <SingupInput
+    //      onChange={this.handleInputChange}
+    //      name="username"
+    //      required
+    //      type="text"
+    //      pattern="[A-Za-z ãéÁáêõÕÊíÍçÇÚúüÜ]{5,}"   
+    //      value={description_band}
+    //      placeholder="Descreva aqui a sua banda!"
+    //      title="Essa descrição vai aparecer para quem acessar o seu perfil no app"
+    //     />
+    //    </Fragment>
+    //   ) ;
+    //   };
+    // });
+
+    //const inputDescriptionBand = 
+
+    const { name, email, username, password, confirmPassword, isPasswordShown, description_band } = this.state;
     return (
       <BodyComp>
         <Header showTitleLink/>
         <ContainerLogin>
-            <Select>
+            <Select value={this.state.selectedSignup}
+              onChange={this.onChangeSelect}
+              selectedSignup={this.state.selectedSignup}
+              renderDescriptionField={this.alter}
+            >
               <option value="" disabled selected>Escolha o seu tipo de cadastro</option>
               <option value="BANDA">Banda|Cantor(a)</option>
               <option value="OUVINTE_NAO_PAGANTE">Ouvinte 0800</option> //ao selecionar o role, enviar o role pro estado da aplicação
@@ -87,6 +135,7 @@ class SignUpPage extends Component {
               placeholder="username"
               title="Mínimo de 3 caracteres minúsculos, sem espaços ou caracteres especiais =)"
             />
+            
             <Label>Senha</Label>
             <SingupInput
               onChange={this.handleInputChange}
