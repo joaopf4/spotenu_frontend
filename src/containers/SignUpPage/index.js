@@ -26,7 +26,6 @@ class SignUpPage extends Component {
 
   renderDescriptionField = (newSignUp) => {
     this.setState({ selectedSignup: newSignUp})
-    console.log("new signup", newSignUp)
   }
 
   onChangeSelect = (event) => {
@@ -48,8 +47,6 @@ class SignUpPage extends Component {
 
     if (password !== confirmPassword) {
     } else {
-      console.log(this.state)
-      console.log(selectedSignup)
       this.props.signUp(name, email, username, password, selectedSignup, description_band);
     }
   }
@@ -59,7 +56,7 @@ class SignUpPage extends Component {
     const { name, email, username, password, confirmPassword, isPasswordShown, description_band } = this.state;
 
      const renderDescriptionBand = this.state.selectedSignup === "BANDA" ? (
-      <Fragment>
+    <Fragment>
       <Label>Descreva aqui a sua banda!</Label>
      <SingupInput
       onChange={this.handleInputChange}
