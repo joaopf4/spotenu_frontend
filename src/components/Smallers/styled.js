@@ -11,6 +11,11 @@ export const InputsComp = styled.div `
   margin: 18px 0px;
   display: flex;
   align-items: inherit;
+  @media(max-width: 320px) {
+    min-width: 270px;
+    width:  270px;
+    height: 50px;
+  }
 `
 export const NakeInput = styled.input `
   border: none;
@@ -44,6 +49,10 @@ export const ButtonsComp = styled.button `
     color: #fff;
     transition: 0s;
   }
+  @media(max-width: 320px) {
+    width: 270px;
+    height: 50px;
+  }
 `
 export const Links = styled.a `
   font-size: inherit;
@@ -61,7 +70,6 @@ export const Link = styled.a `
   :hover {
     cursor: pointer;
   }
-
 `
 export const Select = styled.select `
   min-width: 320px;
@@ -75,6 +83,10 @@ export const Select = styled.select `
   border-radius: 8px;
   margin: 18px 0px;
   font-size: 1.3rem;
+  @media(max-width: 320px) {
+    min-width: 270px;
+    height: 50px;
+  }
 `
 export const Label = styled.label `
   font-size: 1.0rem;

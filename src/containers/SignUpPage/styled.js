@@ -4,6 +4,10 @@ import {InputsComp} from '../../components/Smallers/styled';
 export const SingupInput = styled(InputsComp) `
   min-width: 320px;
   width: 50vw;
+  @media(max-width: 320px) {
+    min-width: 270px;
+    height: 50px;
+  }
 `
 export const ContainerLogin = styled.div `
   display: flex;
@@ -15,6 +19,9 @@ export const ContainerLogin = styled.div `
   box-sizing: border-box;
   background-color: white;
   border-radius: 8px;
+  @media(max-width: 320px){
+    margin: 0vh 0vh 3vh;
+  }
 `
 export const Form = styled.form `
   display: flex;

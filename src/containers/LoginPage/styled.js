@@ -11,6 +11,9 @@ export const ContainerLogin = styled.div `
   border-radius: 8px;
   margin-top: 18vh;
   margin-bottom: 40px;
+  @media(max-width: 320px){
+    margin-top: 5vh;
+  }
 `
 export const Form = styled.form `
   display: flex;
