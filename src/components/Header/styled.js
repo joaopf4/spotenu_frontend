@@ -3,16 +3,19 @@ import { EyeIcon } from '../Smallers/styled'
 
 export const HeaderComp = styled.div `
   width: 100vw;
-  height: 80px;
+  height: fit-content ;
+  min-height: 80px;
   background-color:#00E2BA;
   display: flex;
   padding-left: 64px;
   align-items: center;
   box-sizing: border-box;
-
-  @media(max-width: 600px) {
+  flex-wrap: wrap;
+  padding: 10px 0px 10px 64px;
+  @media(max-width: 640px) {
     height: fit-content;
-    padding: 10px 0px;
+    min-height: fit-content;
+    padding: 10px 0px 10px;
     flex-wrap: wrap;
     min-width: 320px;
   }
@@ -21,15 +24,18 @@ export const ImgLogo = styled.img `
   height: 56px;
   margin-right: 16px;
   margin: aut0 0;
-  @media(max-width: 600px){
-    margin-left: 10vw;
+  @media(max-width: 640px){
+    margin-left: 10vw; 
+  }
+  @media(max-width: 460px){
+    margin-left: 10vw; 
     height: 40px;
   }
 `
 export const Title = styled.h1 `
   font-size:52px;
   margin: 0;
-  @media(max-width: 600px){
+  @media(max-width: 460px){
     font-size:40px;
   }
 `

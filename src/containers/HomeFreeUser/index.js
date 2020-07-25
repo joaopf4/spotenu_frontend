@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from "react";
-import {ContainerLogin, Form, SignUpText} from './styled';
+import {HomeBody, BgImg, SignUpText} from './styled';
 import Header from '../../components/Header/index';
 import {BodyComp, BodyPage} from '../../components/Body/styled';
+import BgImagem from '../../imgs/undraw_music_home.png';
 import {InputsComp, ButtonsComp, Links} from '../../components/Smallers/styled';
 import { push } from "connected-react-router";
 import { routes } from '../Router';
@@ -22,7 +23,9 @@ class HomeFreeUser extends Component {
     return (
       <BodyComp>
         <Header showTitle showSearch/>
+        <HomeBody>
 
+        </HomeBody>
       </BodyComp>
     );
   }

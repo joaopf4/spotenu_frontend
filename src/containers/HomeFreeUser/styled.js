@@ -1,18 +1,6 @@
 import styled from 'styled-components';
+import Background from '../../imgs/undraw_music_home.png'
 
-export const ContainerLogin = styled.div `
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  /* width: fit-content;
-  height: fit-content; */
-  align-items: center;
-  padding: 0px 0px 0px 0px;
-  box-sizing: border-box;
-  background-color: white;
-  border-radius: 8px;
-  margin-top: 10%;
-`
 export const Form = styled.form `
   display: flex;
   flex-direction: column;
@@ -24,5 +12,17 @@ export const SignUpText = styled.p `
   font-family: 'proxima_nova_rgbold', Helvetica, Arial, sans-serif;
   font-size: 0.9rem;
   margin-top: 8px;
-  
+`
+export const HomeBody = styled.div `
+  background-image: url(${Background});
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.75;
+  width: 100vw;
+  height: 100vh; 
+  @media(max-width: 320px){
+  }
+`
+export const BgImg = styled.img `
+
 `
