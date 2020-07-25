@@ -2,7 +2,7 @@ import React, { Component, Fragment, } from "react";
 import {ContainerLogin, Form, SingupInput} from './styled';
 import Header from '../../components/Header/index';
 import {BodyComp} from '../../components/Body/styled';
-import {ButtonsComp, Select, Label, EyeIcon} from '../../components/Smallers/styled';
+import {ButtonsComp, Select, Label, EyeIcon, NakeInput} from '../../components/Smallers/styled';
 import { push, replace } from "connected-react-router";
 import { routes } from "../Router";
 import { signUp } from '../../actions/user';
@@ -58,15 +58,17 @@ class SignUpPage extends Component {
      const renderDescriptionBand = this.state.selectedSignup === "BANDA" ? (
     <Fragment>
       <Label>Descreva aqui a sua banda!</Label>
-     <SingupInput
-      onChange={this.handleInputChange}
-      name="description_band"
-      required
-      type="text" 
-      value={description_band}
-      placeholder="Descreva aqui a sua banda!"
-      title="Essa descrição vai aparecer para quem acessar o seu perfil no app"
-     />
+        <SingupInput>
+          <NakeInput
+            onChange={this.handleInputChange}
+            name="description_band"
+            required
+            type="text" 
+            value={description_band}
+            placeholder="Descreva aqui a sua banda!"
+            title="Essa descrição vai aparecer para quem acessar o seu perfil no app"
+          />
+        </SingupInput>
     </Fragment>
      ) : (<></>)
   
@@ -88,64 +90,74 @@ class SignUpPage extends Component {
             
           <Form onSubmit={this.handleSubmmit}>
             <Label>Nome e sobrenome</Label>
-            <SingupInput 
-              onChange={this.handleInputChange}
-              name="name"
-              required
-              type="text"
-              pattern = "[A-Za-z ãéÁáêõÕÓÊíÍçÇÚúüÜ]{5,}"
-              value={name}
-              placeholder="Nome e Sobrenome"
-              title="O nome/sobrenome deve conter no mínimo 5 letras."
-            />
+            <SingupInput>
+              <NakeInput 
+                onChange={this.handleInputChange}
+                name="name"
+                required
+                type="text"
+                pattern = "[A-Za-z ãéÁáêõÕÓóÊíÍçÇÚúüÜ]{5,}"
+                value={name}
+                placeholder="Nome e Sobrenome"
+                title="O nome/sobrenome deve conter no mínimo 5 letras."
+              />
+            </SingupInput>
             <Label>Email</Label>
-            <SingupInput
-              onChange={this.handleInputChange}
-              name="email"
-              required
-              type="email"
-              value={email}
-              placeholder="email@email.com"
-            />
+            <SingupInput>              
+              <NakeInput
+                onChange={this.handleInputChange}
+                name="email"
+                required
+                type="email"
+                value={email}
+                placeholder="email@email.com"
+              />
+            </SingupInput>
             <Label>Username</Label>
-            <SingupInput
-              onChange={this.handleInputChange}
-              name="username"
-              required
-              type="text"
-              pattern="[a-z-_]{3,}"   
-              value={username}
-              placeholder="username"
-              title="Mínimo de 3 caracteres minúsculos, sem espaços ou caracteres especiais =)"
-            />
+            <SingupInput>
+              <NakeInput
+                onChange={this.handleInputChange}
+                name="username"
+                required
+                type="text"
+                pattern="[a-z-_]{3,}"   
+                value={username}
+                placeholder="username"
+                title="Mínimo de 3 caracteres minúsculos, sem espaços ou caracteres especiais =)"
+              />
+            </SingupInput>
             {renderDescriptionBand}
             <Label>Senha</Label>
-            <SingupInput
-              onChange={this.handleInputChange}
-              name="password"
-              required
-              type={(isPasswordShown)?"text" : "password" }      
-              value={password}
-              title="Mínimo de 6 caracteres"
-              placeholder="Mínimo 6 caracteres"
-              pattern="[A-Za-z 123456789!@#$%¨&*]{6,}"
-            />
+            <SingupInput> 
+              <NakeInput
+                onChange={this.handleInputChange}
+                name="password"
+                required
+                type={(isPasswordShown)?"text" : "password" }      
+                value={password}
+                title="Mínimo de 6 caracteres"
+                placeholder="Mínimo 6 caracteres"
+                pattern="[A-Za-z 123456789!@#$%¨&*]{6,}"
+              />
             <EyeIcon><i onClick={this.togglePasswordVisibility} 
             className={`fa ${isPasswordShown ? "fa-eye-slash" : "fa-eye"} password-icon`}></i></EyeIcon>
+            </SingupInput>
 
             <Label>Confirmação da senha</Label>
-            <SingupInput
-              onChange={this.handleInputChange}
-              name="confirmPassword"
-              required
-              type={(isPasswordShown)?"text" : "password" }         
-              value={confirmPassword}
-              title="Mínimo de 6 caracteres"
-              placeholder="Confirme a senha anterior"
-              pattern="[A-Za-z 123456789!@#$%¨&*]{6,}"
-            />
-            <EyeIcon><i onClick={this.togglePasswordVisibility} 
-            className={`fa ${isPasswordShown ? "fa-eye-slash" : "fa-eye"} password-icon`}></i></EyeIcon> 
+            <SingupInput>              
+              <NakeInput
+                onChange={this.handleInputChange}
+                name="confirmPassword"
+                required
+                type={(isPasswordShown)?"text" : "password" }         
+                value={confirmPassword}
+                title="Mínimo de 6 caracteres"
+                placeholder="Confirme a senha anterior"
+                pattern="[A-Za-z 123456789!@#$%¨&*]{6,}"
+              />
+              <EyeIcon><i onClick={this.togglePasswordVisibility} 
+              className={`fa ${isPasswordShown ? "fa-eye-slash" : "fa-eye"} password-icon`}></i></EyeIcon> 
+            </SingupInput>
 
             <ButtonsComp type="submit"> 
               Enviar!

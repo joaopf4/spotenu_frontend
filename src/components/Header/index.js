@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from "react";
 import Imagem from '../../imgs/logospotenublack.png'
-import { HeaderComp, ImgLogo, Title, InputHeader, Search, NakeInput} from './styled'
+import { HeaderComp, ImgLogo, Title, InputHeader, Search} from './styled'
 import { Link } from '../Smallers/styled'
 import { push, replace } from "connected-react-router";
 import { connect } from "react-redux"
 import { routes } from "../../containers/Router";
+import {NakeInput} from "../Smallers/styled"
 
 class Header extends Component {
     render() {

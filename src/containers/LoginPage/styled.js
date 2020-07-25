@@ -4,8 +4,6 @@ export const ContainerLogin = styled.div `
   display: flex;
   justify-content: center;
   flex-direction: column;
-  /* width: fit-content;
-  height: fit-content; */
   align-items: center;
   padding: 0px 0px 0px 0px;
   box-sizing: border-box;

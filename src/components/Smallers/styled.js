@@ -1,20 +1,23 @@
 import styled from 'styled-components';
 
-export const InputsComp = styled.input `
+export const InputsComp = styled.div `
   width: 300px;
   height: 60px;
-  min-width: fit-content;
-  outline: none;
   border: 2px solid black;
   box-shadow: rgba(1, 1, 1, 1) 20px 20px;
   box-sizing: border-box;
   padding: 0 20px;
   border-radius: 8px;
   margin: 18px 0px;
-  font-size: 1.3rem;
+  display: flex;
+  align-items: inherit;
+`
+export const NakeInput = styled.input `
+  border: none;
+  width: 100%;
+  font-size: 1.3rem;  
   ::placeholder,
   ::-webkit-input-placeholder {
-
     font-size: 1.3rem;
   }
 `

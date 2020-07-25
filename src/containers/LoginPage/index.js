@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {ContainerLogin, Form, SignUpText} from './styled';
 import Header from '../../components/Header/index';
 import {BodyComp, BodyPage} from '../../components/Body/styled';
-import {InputsComp, ButtonsComp, Links, Label, EyeIcon} from '../../components/Smallers/styled';
+import {InputsComp, ButtonsComp, Links, Label, EyeIcon, NakeInput} from '../../components/Smallers/styled';
 import { push } from "connected-react-router";
 import { routes } from '../Router';
 import { loginUser } from '../../actions/user';
@@ -50,7 +50,8 @@ class LoginPage extends Component {
           <ContainerLogin>
             <Form onSubmit={this.handleLogin}>
               <Label for="email">Email ou username</Label>
-              <InputsComp 
+              <InputsComp>              
+              <NakeInput 
                 name="email"
                 required
                 type="text"
@@ -59,9 +60,11 @@ class LoginPage extends Component {
                 value={email} 
                 placeholder="email ou username"
               />
-              <Label for="senha">Senha</Label>
+              </InputsComp>
               
-              <InputsComp
+              <Label for="senha">Senha</Label>
+              <InputsComp>              
+              <NakeInput
                 name="password"
                 required
                 type={(isPasswordShown)?"text" : "password" }
@@ -72,6 +75,7 @@ class LoginPage extends Component {
               /> <EyeIcon><i onClick={this.togglePasswordVisibility} 
               className={`fa ${isPasswordShown ? "fa-eye-slash" : "fa-eye"} password-icon`}>
                 </i></EyeIcon>
+              </InputsComp>
               <br/>
               <ButtonsComp type="submit"> 
                 Entrar

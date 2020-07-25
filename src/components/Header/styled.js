@@ -59,12 +59,3 @@ export const Search = styled(EyeIcon) `
   cursor: pointer;
   align-self: left;
 `
-export const NakeInput = styled.input `
-  border: none;
-  width: 100%;
-  font-size: 1.3rem;  
-  ::placeholder,
-  ::-webkit-input-placeholder {
-    font-size: 1.3rem;
-  }
-`
