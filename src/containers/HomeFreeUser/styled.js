@@ -20,7 +20,12 @@ export const HomeBody = styled.div `
   opacity: 0.75;
   width: 100vw;
   height: 100vh; 
-  @media(max-width: 320px){
+  @media(max-width: 920px){
+    background-size: 70vh;
+    background-size: 115%;
+  }
+  @media(max-width: 620px){
+    background-size: 115%;
   }
 `
 export const BgImg = styled.img `

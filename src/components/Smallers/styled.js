@@ -11,9 +11,9 @@ export const InputsComp = styled.div `
   margin: 18px 0px;
   display: flex;
   align-items: inherit;
-  @media(max-width: 320px) {
-    min-width: 270px;
-    width:  270px;
+  @media(max-width: 460px) {
+    min-width: 260px;
+    width:  260px;
     height: 50px;
   }
 `
@@ -49,8 +49,8 @@ export const ButtonsComp = styled.button `
     color: #fff;
     transition: 0s;
   }
-  @media(max-width: 320px) {
-    width: 270px;
+  @media(max-width: 460px) {
+    width: 260px;
     height: 50px;
   }
 `
@@ -83,8 +83,8 @@ export const Select = styled.select `
   border-radius: 8px;
   margin: 18px 0px;
   font-size: 1.3rem;
-  @media(max-width: 320px) {
-    min-width: 270px;
+  @media(max-width: 460px) {
+    min-width: 260px;
     height: 50px;
   }
 `

@@ -46,7 +46,7 @@ class LoginPage extends Component {
     const { goToFormRegister } = this.props
     return (
       <BodyComp>
-        <Header showTitle/>
+        <Header showTitleLink/>
           <ContainerLogin>
             <Form onSubmit={this.handleLogin}>
               <Label for="email">Email ou username</Label>

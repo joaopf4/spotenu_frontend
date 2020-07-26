@@ -3,7 +3,7 @@ import { EyeIcon } from '../Smallers/styled'
 
 export const HeaderComp = styled.div `
   width: 100vw;
-  height: fit-content ;
+  height: 80px;
   min-height: 80px;
   background-color:#00E2BA;
   display: flex;
@@ -13,11 +13,14 @@ export const HeaderComp = styled.div `
   flex-wrap: wrap;
   padding: 10px 0px 10px 64px;
   @media(max-width: 640px) {
-    height: fit-content;
+    /* height: 80px; */
     min-height: fit-content;
     padding: 10px 0px 10px;
     flex-wrap: wrap;
     min-width: 320px;
+  }
+  @media(max-width: 460px) {
+    height: fit-content;
   }
 `
 export const ImgLogo = styled.img `
@@ -37,7 +40,13 @@ export const Title = styled.h1 `
   margin: 0;
   @media(max-width: 460px){
     font-size:40px;
+  } 
+`
+export const TitleHome = styled(Title) `
+  @media(max-width: 690px){
+    display: none;
   }
+
 `
 export const InputHeader = styled.div `
   width: 260px;
@@ -52,16 +61,22 @@ export const InputHeader = styled.div `
   align-items: center;
   justify-content: flex-end;
   display: flex;
-
-  @media(max-width: 600px){
-    margin-left: 10vw;
-    width: 220px;
-    height: 42px;
+  @media(max-width: 500px) {
+    margin-left: 2vw;
+    width: 45%;
+  }
+  @media(max-width: 460px){
+      height: 40px;
   }
 `
 export const Search = styled(EyeIcon) `
   font-size: 1.6rem;
   margin-left: 10px;
-  cursor: pointer;
-  align-self: left;
+`
+export const HeadIcons = styled(Search) `
+  position: absolute;
+  right: 40px;
+  @media(max-width: 380px){
+    right: 20px;
+  }
 `

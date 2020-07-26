@@ -19,8 +19,8 @@ export const ContainerLogin = styled.div `
   box-sizing: border-box;
   background-color: white;
   border-radius: 8px;
-  @media(max-width: 320px){
-    margin: 0vh 0vh 3vh;
+  @media(max-width: 460px){
+    margin: 2vh 0vh 3vh 0vh;
   }
 `
 export const Form = styled.form `

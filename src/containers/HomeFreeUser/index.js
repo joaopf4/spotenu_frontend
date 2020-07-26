@@ -22,7 +22,7 @@ class HomeFreeUser extends Component {
 
     return (
       <BodyComp>
-        <Header showTitle showSearch/>
+        <Header showTitle showSearch showProfileIcon/>
         <HomeBody>
 
         </HomeBody>
