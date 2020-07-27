@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {ContainerLogin, Form, SignUpText} from './styled';
 import Header from '../../components/Header/index';
-import {BodyComp, BodyPage} from '../../components/Body/styled';
+import {BodyComp} from '../../components/Body/styled';
 import {InputsComp, ButtonsComp, Links, Label, EyeIcon, NakeInput} from '../../components/Smallers/styled';
 import { push } from "connected-react-router";
 import { routes } from '../Router';
