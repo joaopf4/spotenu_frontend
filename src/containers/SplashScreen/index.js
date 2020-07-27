@@ -6,9 +6,9 @@ import {SplashBody, Logo} from "./styled";
 import LogoVerde from '../../imgs/logospotenu.png'
 
 class SplashScreen extends React.Component {
-     componentDidMount() {
-         window.setTimeout(this.props.goToLogin, 3000);
-     }
+      componentDidMount() {
+          window.setTimeout(this.props.goToLogin, 3000);
+      }
 
     render() {
         return (

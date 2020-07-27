@@ -4,8 +4,6 @@ import { Switch, Route } from "react-router-dom";
 import LoginPage from "../LoginPage";
 import SignUpPage from "../SignUpPage";
 import SplashScreen from "../SplashScreen";
-import { BodyComp } from "../../components/Body/styled";
-import { Header } from "../../components/Header/index"
 import HomeFreeUser from "../HomeFreeUser";
 
 export const routes = {

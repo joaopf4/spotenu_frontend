@@ -6,7 +6,7 @@ export const SplashBody = styled.div `
     background-color: #000;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(#000, #fff  ) ;
+    /* background: radial-gradient(#000, #fff  ) ; */
 `
 
 export const Logo = styled.img `

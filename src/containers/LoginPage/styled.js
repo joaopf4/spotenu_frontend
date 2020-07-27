@@ -4,8 +4,6 @@ export const ContainerLogin = styled.div `
   display: flex;
   justify-content: center;
   flex-direction: column;
-  /* width: fit-content;
-  height: fit-content; */
   align-items: center;
   padding: 0px 0px 0px 0px;
   box-sizing: border-box;
@@ -13,6 +11,9 @@ export const ContainerLogin = styled.div `
   border-radius: 8px;
   margin-top: 18vh;
   margin-bottom: 40px;
+  @media(max-width: 460px){
+    margin-top: 5vh;
+  }
 `
 export const Form = styled.form `
   display: flex;
