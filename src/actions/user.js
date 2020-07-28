@@ -4,9 +4,13 @@ import { push } from 'connected-react-router'
 
 const baseUrl = "https://u8c0wfyum6.execute-api.us-east-1.amazonaws.com/dev"
 
+export const setProfile = (profile) => ({
+    type: "SET_PROFILE",
+    payload: {
+       profile
+    }
+})
 
-////////////assíncronas
-////////////action de cadastro de usuário
 export const signUp = (name, email, nickname, password, role, description_band) => async (dispatch) => {
     const body = {name, email, nickname, password, role, description_band}
     try {
@@ -28,7 +32,6 @@ export const signUp = (name, email, nickname, password, role, description_band) 
     }
 }
 
-////////////action de login
 export const loginUser = (emailOrUsername, password) => async (dispatch) => {
     const body = { 
         emailOrUsername,
@@ -46,3 +49,17 @@ export const loginUser = (emailOrUsername, password) => async (dispatch) => {
     }
 }
 
+export const getProfile = () => async (dispatch) => { 
+    const token = localStorage.getItem('token')
+try { 
+    const response = await axios.get(`${baseUrl}/user/profile`, 
+    { 
+        headers: { 
+             "authorization": token
+        } 
+    }); 
+    dispatch(setProfile(response.data))
+    console.log(response.data)
+    }catch (err) { 
+        console.log(err); 
+    }};

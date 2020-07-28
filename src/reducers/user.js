@@ -30,6 +30,11 @@ const user = (state = initialState, action) => {
                 ...state,
                 bandId: action.payload.id
             }
+            case "SET_PROFILE":
+                return {
+                    ...state,
+                    profile: action.payload.profile
+                }
 
         default:
             return state;
