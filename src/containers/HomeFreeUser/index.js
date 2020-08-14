@@ -31,7 +31,7 @@ class HomeFreeUser extends Component {
       <BodyComp>
         <Header showTitle showSearch showProfileIcon/>
         <HomeBody>
-          <p>Olá {user && user.name} seu arrombado</p>
+          <p>Olá {user && user.name}</p>
         </HomeBody>
       </BodyComp>
     );
